@@ -35,7 +35,7 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
-          background: "linear-gradient(darkslateblue, midnightblue)",
+        
         }}
       >
         <LoadingOutlined style={{ fontSize: 24, color: "white" }} />

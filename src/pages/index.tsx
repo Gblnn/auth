@@ -1,9 +1,9 @@
 import { useAuth } from "@/components/AuthProvider";
 import Back from "@/components/back";
+import DefaultDialog from "@/components/default-dialog";
 import Directive from "@/components/directive";
 import IndexDropDown from "@/components/index-dropdown";
 import InputDialog from "@/components/input-dialog";
-import DefaultDialog from "@/components/default-dialog";
 import { auth } from "@/firebase";
 import { LoadingOutlined } from "@ant-design/icons";
 import emailjs from "@emailjs/browser";
@@ -11,13 +11,11 @@ import { message } from "antd";
 import { motion } from "framer-motion";
 import {
   Bug,
-  FileArchive,
+  Crown,
   KeyRound,
   Link,
   Mail,
-  QrCode,
-  SquareUser,
-  UserCheck
+  UserSquare
 } from "lucide-react";
 import moment from "moment";
 import { useEffect, useState } from "react";
@@ -94,15 +92,15 @@ export default function Index() {
           border: "",
           padding: "1.25rem",
           background:
-            "linear-gradient(rgba(18 18 80/ 65%), rgba(100 100 100/ 0%))",
+            "linear-gradient(rgba(100 100 100/ 0%),black, saddlebrown)",
           height: "100svh",
         }}
       >
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
           <Back
-            title="StarBoard"
+            title="Coffee"
             subtitle={"v1.4"}
-            icon={<img src="/stardox-bg.png" style={{ width: "1.75rem" }} />}
+            icon={<img src="/coffee-white.png" style={{ width: "1.75rem" }} />}
             noback
             extra={
               <div
@@ -154,7 +152,7 @@ export default function Index() {
                       {loading ? (
                         <LoadingOutlined color="dodgerblue" />
                       ) : (
-                        <KeyRound color="dodgerblue" width={"1rem"} />
+                        <KeyRound color="chocolate" width={"1rem"} />
                       )}
                     </button>
                   </motion.div>
@@ -196,8 +194,8 @@ export default function Index() {
               <Directive
                 to={access ? "/record-list" : ""}
                 onClick={Authenticate}
-                title={"Records Master"}
-                icon={<FileArchive color="violet" width={"1.25rem"} />}
+                title={"Role Based Access"}
+                icon={<UserSquare color="chocolate" width={"1.25rem"} />}
               />
 
               <Directive
@@ -207,116 +205,18 @@ export default function Index() {
                     ? usenavigate("/human-resources")
                     : message.error("No Clearance to Access")
                 }
-                title={"Human Resources"}
-                icon={<SquareUser color="royalblue" width={"1.25rem"} />}
+                title={"Exclusive Access"}
+                icon={<Crown color="chocolate" width={"1.25rem"} />}
               />
 
               <Directive
                 onClick={() => usenavigate("/quick-links")}
                 to={"/quick-links"}
-                title={"Quick Links"}
-                icon={<Link color="orange" width={"1.25rem"} />}
+                title={"Normal Directive"}
+                icon={<Link color="chocolate" width={"1.25rem"} />}
               />
 
-              <Directive
-                onClick={() => usenavigate("/new-hire")}
-                to={"/new-hire"}
-                title={"New Hire"}
-                icon={<UserCheck width={"1.25rem"} color="salmon" />}
-              />
-
-              {/* <Directive
-                onClick={() => usenavigate("/agreements")}
-                to={"/agreements"}
-                title={"Agreements"}
-                icon={<FileText width={"1.25rem"} color="mediumslateblue" />}
-              /> */}
-
-              {/* <Directive
-                title={"Vehicles"}
-                icon={<Car color="salmon" width={"1.25rem"} />}
-              />
-
-              <Directive
-                to={"/website"}
-                title={"Website"}
-                icon={<Globe width={"1.25rem"} />}
-              /> */}
-
-              {/* <Directive
-                to={"/add-remarks"}
-                title={"Annotate"}
-                icon={<PenSquare width={"1.25rem"} color="dodgerblue" />}
-              /> */}
-
-              <Directive
-                onClick={() => usenavigate("/qr-code-generator")}
-                to={"/qr-code-generator"}
-                title={"QR Generator"}
-                icon={<QrCode width={"1.25rem"} />}
-              />
-
-              {/* <Directive
-                tag="Work In Progress"
-                to={"/movement-register"}
-                title={"Movement"}
-                icon={<ArrowUpDown width={"1.25rem"} color="dodgerblue" />}
-              />
-
-              <Directive
-                tag="Work In Progress"
-                status={true}
-                to={"/lpos"}
-                title={"LPOs"}
-                icon={<FileText width={"1.25rem"} color="dodgerblue" />}
-              /> */}
-
-              {/* <Directive
-              notName
-              to={""}
-              title={"Report a Bug"}
-              icon={<Bug width={"1.25rem"} color="lightgreen" />}
-              onClick={() => {
-                setBugDialog(true);
-              }}
-            /> */}
-
-              {/* <Directive
-              onClick={() => handleLoginPrompt("ssu")}
-              title="Sohar Star United"
-              icon={
-                <Avatar
-                  style={{ width: "1.25rem", height: "1.25rem", border: "" }}
-                >
-                  <AvatarImage
-                    style={{ objectFit: "cover" }}
-                    src={"/sohar_star_logo.png"}
-                  />
-                  <AvatarFallback>
-                    <p style={{ paddingTop: "0.1rem" }}>{"S"}</p>
-                  </AvatarFallback>
-                </Avatar>
-              }
-            />
-
-            <Directive
-              onClick={() => handleLoginPrompt("vale")}
-              title="Vale Team"
-              icon={
-                <Avatar
-                  style={{ width: "1.25rem", height: "1.25rem", border: "" }}
-                >
-                  <AvatarImage
-                    style={{ objectFit: "cover", paddingBottom: "0.1rem" }}
-                    src={"/vale-logo.png"}
-                  />
-
-                  <AvatarFallback>
-                    <p style={{ paddingTop: "0.1rem" }}>{"V"}</p>
-                  </AvatarFallback>
-                </Avatar>
-              }
-            /> */}
+             
 
               {/* <Directive onClick={()=>{setRequestDialog(true)}} title="Request Feature" icon={<Plus color="grey" width={"1.1rem"} height={"1.1rem"}/>}/> */}
             </div>
@@ -378,7 +278,7 @@ export default function Index() {
           title={"Protected Route"}
           input1Type="password"
           desc="Enter key to continue"
-          titleIcon={<KeyRound color="dodgerblue" />}
+          titleIcon={<KeyRound color="chocolate" />}
           open={loginPrompt}
           onCancel={() => setLoginPrompt(false)}
           OkButtonText="Continue"

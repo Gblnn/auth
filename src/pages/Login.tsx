@@ -67,7 +67,7 @@ export default function Login() {
           style={{
             border: "",
             flex: 1,
-            background: "linear-gradient(darkslateblue, midnightblue)",
+            background: "linear-gradient(saddlebrown, rgba(100 100 100/ 20%))",
             alignItems: "flex-end",
             borderRadius: "1rem",
           }}
@@ -78,15 +78,15 @@ export default function Login() {
               border: "",
               alignItems: "center",
               margin: "2rem",
-              gap: "",
+              gap: "1rem",
             }}
           >
-            <img src="/stardox-bg.png" style={{ width: "4rem", border: "" }} />
+            <img src="/coffee-white.png" style={{ width: "2rem", border: "" }} />
 
             <div
               style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}
             >
-              <p style={{ fontWeight: 400, fontSize: "2.25rem" }}>StarBoard</p>
+              <p style={{ fontWeight: 400, fontSize: "2.25rem" }}>Coffee</p>
               <p>v1.1</p>
             </div>
           </div>
@@ -221,7 +221,7 @@ export default function Login() {
                     style={{
                       fontSize: "0.8rem",
                       fontWeight: "600",
-                      color: "mediumslateblue",
+                      color: "chocolate",
                       cursor: "pointer",
                     }}
                     to={"/user-reset"}
@@ -236,7 +236,7 @@ export default function Login() {
                 onClick={handleLoginIn}
                 className={loading ? "disabled" : ""}
                 style={{
-                  background: "midnightblue",
+                  background: "chocolate",
                   display: "flex",
                   gap: "0.75rem",
                 }}
@@ -272,7 +272,7 @@ export default function Login() {
               <Link
                 style={{
                   fontSize: "0.8rem",
-                  color: "mediumslateblue",
+                  color: "chocolate",
                   fontWeight: "600",
                   cursor: "pointer",
                 }}

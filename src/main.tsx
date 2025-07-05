@@ -4,7 +4,7 @@ import App from "./App.tsx";
 import "@/index.css"
 import "@/styles/style.css"
 import "@/styles/utils.css"
-import "@/styles/globals.css"
+// import "@/styles/globals.css"
 import { ThemeProvider } from "@/components/theme-provider.tsx";
 import "@/WEB/css/clash-grotesk.css"
 import TimeAgo from "javascript-time-ago";

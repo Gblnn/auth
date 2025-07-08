@@ -99,9 +99,9 @@ export default function Index() {
       >
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
           <Back
-            title="Coffee"
-            subtitle={"v1.4"}
-            icon={<img src="/coffee-white.png" style={{ width: "1.75rem" }} />}
+            title="App"
+            subtitle={"v1.0"}
+            icon={<img src="/vite.svg" style={{ width: "1.75rem" }} />}
             noback
             extra={
               <div

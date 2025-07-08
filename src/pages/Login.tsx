@@ -80,12 +80,12 @@ export default function Login() {
               gap: "1rem",
             }}
           >
-            <img src="/coffee-white.png" style={{ width: "2rem", border: "" }} />
+            <img src="/vite.svg" style={{ width: "2rem", border: "" }} />
 
             <div
               style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}
             >
-              <p style={{ fontWeight: 400, fontSize: "2.25rem" }}>Coffee</p>
+              <p style={{ fontWeight: 400, fontSize: "2.25rem" }}>App</p>
               <p>v1.1</p>
             </div>
           </div>

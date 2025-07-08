@@ -1,4 +1,13 @@
+import Directive from "@/components/directive";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Dialog, DialogContent, DialogFooter, DialogHeader } from "@/components/ui/dialog";
 import { LoadingOutlined } from "@ant-design/icons";
+import { motion } from "framer-motion";
 import { DialogDescription, DialogTitle } from "@radix-ui/react-dialog";
 import { Tooltip } from "antd";
 import {
@@ -11,15 +20,6 @@ import {
   ScrollText,
   X,
 } from "lucide-react";
-import Directive from "@/components/directive";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogFooter, DialogHeader } from "@/components/ui/dialog";
 import { useEffect } from "react";
 
 interface Props {
@@ -637,9 +637,10 @@ export default function DefaultDialog(props: Props) {
             >
               {props.footerExtra ? props.footerExtra : null}
               {props.close ? (
-                <button
+                <motion.button
+                  whileTap={{ scale: 0.99 }}
                   onClick={props.onCancel}
-                  style={{ width: "100%", fontSize: "0.9rem" }}
+                  style={{ width: "100%", fontSize: "0.8rem" }}
                 >
                   {props.back ? (
                     <>
@@ -652,7 +653,7 @@ export default function DefaultDialog(props: Props) {
                       <p>Close</p>
                     </>
                   )}
-                </button>
+                </motion.button>
               ) : (
                 <div
                   style={{
@@ -662,12 +663,12 @@ export default function DefaultDialog(props: Props) {
                     justifyContent: "center",
                   }}
                 >
-                  <Button
+                  <motion.button
+                    whileTap={{ scale: 0.99 }}
                     className={props.disabled ? "disabled" : ""}
-                    variant={props.destructive ? "destructive" : "default"}
                     id="okBtn"
                     onClick={props.updating ? null : props.onOk}
-                    style={{ flex: 1 }}
+                    style={{ flex: 1, background: "white", color: "black" }}
                   >
                     {props.sendmail ? (
                       <a
@@ -690,17 +691,17 @@ export default function DefaultDialog(props: Props) {
                         {props.OkButtonText}
                       </div>
                     )}
-                  </Button>
+                  </motion.button>
 
-                  <Button
+                  <motion.button
+                    whileTap={{ scale: 0.99 }}
                     className={props.updating ? "disabled" : ""}
-                    variant={"ghost"}
                     id="cancelBtn"
                     onClick={props.updating ? null : props.onCancel}
                     style={{ flex: 1 }}
                   >
                     Cancel
-                  </Button>
+                  </motion.button>
                 </div>
               )}
             </div>

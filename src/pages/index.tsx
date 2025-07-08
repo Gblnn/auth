@@ -7,7 +7,6 @@ import InputDialog from "@/components/input-dialog";
 import { auth } from "@/firebase";
 import { LoadingOutlined } from "@ant-design/icons";
 import emailjs from "@emailjs/browser";
-import { message } from "antd";
 import { motion } from "framer-motion";
 import {
   Bug,
@@ -15,11 +14,13 @@ import {
   KeyRound,
   Link,
   Mail,
+  UserCog,
   UserSquare
 } from "lucide-react";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 export default function Index() {
   const usenavigate = useNavigate();
@@ -51,7 +52,7 @@ export default function Index() {
       message: issue,
     });
     setLoading(false);
-    message.success("Bug Report sent");
+    toast.success("Bug Report sent");
     setBugDialog(false);
   };
 
@@ -69,7 +70,7 @@ export default function Index() {
   }, [userData, navigate]);
 
   const Authenticate = () => {
-    access ? navigate("/record-list") : message.error("Clearance required");
+    access ? navigate("/record-list") : toast.error("Clearance required");
   };
 
   const handleLogout = async () => {
@@ -78,7 +79,7 @@ export default function Index() {
       await logOut();
     } catch (error) {
       console.error("Logout error:", error);
-      message.error("Failed to logout. Please try again.");
+      toast("Failed to logout. Please try again.");
     }
   };
 
@@ -91,8 +92,8 @@ export default function Index() {
         style={{
           border: "",
           padding: "1.25rem",
-          background:
-            "linear-gradient(rgba(100 100 100/ 0%),black, saddlebrown)",
+          // background:
+          //   "linear-gradient(rgba(100 100 100/ 0%),black,black, saddlebrown)",
           height: "100svh",
         }}
       >
@@ -140,7 +141,7 @@ export default function Index() {
                     whileInView={{ opacity: 1 }}
                   >
                     <button
-                      onClick={() => navigate("/admin")}
+                      onClick={() => navigate("/users")}
                       style={{
                         fontSize: "0.75rem",
                         paddingLeft: "1rem",
@@ -152,7 +153,8 @@ export default function Index() {
                       {loading ? (
                         <LoadingOutlined color="dodgerblue" />
                       ) : (
-                        <KeyRound color="chocolate" width={"1rem"} />
+                        <UserCog color="chocolate" width={"1rem"} />
+                      
                       )}
                     </button>
                   </motion.div>
@@ -203,7 +205,7 @@ export default function Index() {
                 onClick={() =>
                   userData?.role == "hr"
                     ? usenavigate("/human-resources")
-                    : message.error("No Clearance to Access")
+                    : toast.error("No Clearance to Access")
                 }
                 title={"Exclusive Access"}
                 icon={<Crown color="chocolate" width={"1.25rem"} />}

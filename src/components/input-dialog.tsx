@@ -1,8 +1,7 @@
 import { LoadingOutlined } from '@ant-design/icons';
-import { Button } from "./ui/button";
-import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "./ui/dialog";
-import { ImageIcon } from 'lucide-react';
 import { DialogDescription } from '@radix-ui/react-dialog';
+import { ImageIcon } from 'lucide-react';
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "./ui/dialog";
 
 interface Props{
     open?: boolean
@@ -81,7 +80,7 @@ export default function InputDialog(props:Props){
                             :null
                         }
 
-                        <div style={{display:"flex", alignItems:"center", gap:"1rem"}}>
+                        <div style={{display:"flex", alignItems:"center", gap:"1rem", marginTop:"1rem"}}>
                             
                             {
                                 props.input1Label?
@@ -237,7 +236,7 @@ export default function InputDialog(props:Props){
 
                 <DialogFooter>
                     <div style={{width:"100%", display:"flex", gap:"0.5rem", justifyContent:"center"}}>
-                        <Button variant={"default"} className={props.disabled?"disabled":""} id="okBtn" onClick={props.disabled?null:props.onOk} style={{flex:1}}>
+                        <button  className={props.disabled?"disabled":""} id="okBtn" onClick={props.disabled?null:props.onOk} style={{flex:1, background:"white", color:"black"}}>
                             
                             
                             {
@@ -248,11 +247,11 @@ export default function InputDialog(props:Props){
                                 {props.OkButtonText}
                                 
                             
-                        </Button>
+                        </button>
 
-                        <Button variant={"ghost"} id="cancelBtn" onClick={props.onCancel} style={{flex:1}}>
+                        <button id="cancelBtn" onClick={props.onCancel} style={{flex:1}}>
                             Cancel
-                        </Button>
+                        </button>
                     </div>
                 </DialogFooter>
             </DialogContent>

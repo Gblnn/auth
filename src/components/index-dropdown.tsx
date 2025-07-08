@@ -1,3 +1,6 @@
+import DefaultDialog from "@/components/default-dialog";
+import { auth } from "@/firebase";
+import emailjs from "@emailjs/browser";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import {
   Bug,
@@ -6,18 +9,15 @@ import {
   RefreshCcw,
   User,
 } from "lucide-react";
+import moment from "moment";
+import { useState } from "react";
+import { toast } from "sonner";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
 } from "./ui/dropdown-menu";
-import DefaultDialog from "@/components/default-dialog";
-import { useState } from "react";
-import { auth } from "@/firebase";
-import emailjs from "@emailjs/browser";
-import moment from "moment";
-import { message } from "antd";
 
 interface Props {
   trigger?: any;
@@ -52,7 +52,7 @@ export default function IndexDropDown(props: Props) {
       message: issue,
     });
     setLoading(false);
-    message.success("Bug Report sent");
+    toast.success("Bug Report sent");
     setBugDialog(false);
   };
 
@@ -164,7 +164,7 @@ export default function IndexDropDown(props: Props) {
         open={bugDialog}
         onCancel={() => {
           setBugDialog(false);
-          window.location.reload();
+          // window.location.reload();
         }}
         OkButtonText="Report"
         disabled={issue == ""}

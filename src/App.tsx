@@ -5,6 +5,8 @@ import ProtectedRoutes from "@/components/protectedRoute";
 import Index from "@/pages/index";
 import Login from "@/pages/Login";
 import PageNotFound from "@/pages/page-not-found";
+import UserReset from "./pages/user-reset";
+import Users from "./pages/users";
 
 // Initialize emailjs once outside of component
 
@@ -16,6 +18,7 @@ export default function App() {
     <Routes>
       {/* Public routes */}
       <Route path="/" element={<Login />} />
+      <Route path="/user-reset" element={<UserReset />} />
 
       {/* Protected routes */}
       <Route
@@ -26,6 +29,7 @@ export default function App() {
         }
       >
         <Route path="/index" element={<Index />} />
+        <Route path="/users" element={<Users />} />
       </Route>
 
       <Route path="*" element={<PageNotFound />} />

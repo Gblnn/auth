@@ -12,12 +12,12 @@ import {
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD8LWJoohdEagKAhtVybbqlmzlJYD3w9KY",
-  authDomain: "doc-record.firebaseapp.com",
-  projectId: "doc-record",
-  storageBucket: "doc-record.appspot.com",
-  messagingSenderId: "834882723630",
-  appId: "1:834882723630:web:f8efe9cbbfad7e69bd64bf",
+  apiKey: "AIzaSyDHM48rqJQKhk7lMTNPm6-7b-jr-TODb0c",
+  authDomain: "coffee-pos-aa730.firebaseapp.com",
+  projectId: "coffee-pos-aa730",
+  storageBucket: "coffee-pos-aa730.firebasestorage.app",
+  messagingSenderId: "956277416705",
+  appId: "1:956277416705:web:0289d8c6678b533ea07100"
 };
 
 // Initialize Firebase with performance settings

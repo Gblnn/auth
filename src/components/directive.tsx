@@ -81,12 +81,12 @@ export default function Directive(props: Props) {
         width: props.width ? props.width : "100%",
       }}
     >
-      <button
+      <motion.button
+        whileTap={{ scale: 0.99 }}
         onClick={(e) => e.preventDefault()} // Prevent double firing
         className="directive-button"
         style={{
           padding: "0.75rem",
-
           gap: "0.5rem",
           width: "100%",
           display: "flex",
@@ -299,7 +299,7 @@ export default function Directive(props: Props) {
             </motion.div>
           )}
         </div>
-      </button>
+      </motion.button>
     </Link>
   );
 }

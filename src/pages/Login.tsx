@@ -1,8 +1,6 @@
 import { useAuth } from "@/components/AuthProvider";
-import { Checkbox } from "@/components/ui/checkbox";
 import { auth } from "@/firebase";
 import { LoadingOutlined } from "@ant-design/icons";
-import { message } from "antd";
 import {
   browserLocalPersistence,
   browserSessionPersistence,
@@ -12,6 +10,7 @@ import { motion } from "framer-motion";
 import { ChevronRight, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -20,7 +19,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [stayLoggedIn, setStayLoggedIn] = useState(false);
+  const [stayLoggedIn] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleLoginIn = async () => {
@@ -53,7 +52,7 @@ export default function Login() {
     } catch (err: any) {
       const errorMessage = err.message;
       console.error("Login error:", err);
-      message.error(errorMessage);
+      toast(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -67,7 +66,7 @@ export default function Login() {
           style={{
             border: "",
             flex: 1,
-            background: "linear-gradient(saddlebrown, rgba(100 100 100/ 20%))",
+            background: "rgba(100 100 100 / 0.15)",
             alignItems: "flex-end",
             borderRadius: "1rem",
           }}
@@ -207,7 +206,7 @@ export default function Login() {
                     alignItems: "center",
                   }}
                 >
-                  <div style={{ display: "flex", gap: "0.5rem" }}>
+                  {/* <div style={{ display: "flex", gap: "0.5rem" }}>
                     <Checkbox
                       checked={stayLoggedIn}
                       onCheckedChange={(checked) =>
@@ -215,7 +214,7 @@ export default function Login() {
                       }
                     />
                     <p style={{ fontSize: "0.75rem" }}>Stay logged in</p>
-                  </div>
+                  </div> */}
 
                   <Link
                     style={{
@@ -251,7 +250,7 @@ export default function Login() {
             <br />
             <br />
 
-            <div
+            {/* <div
               style={{
                 display: "flex",
                 flexFlow: "column",
@@ -260,10 +259,7 @@ export default function Login() {
                 width: "100%",
               }}
             >
-              {/* <Button onClick={handleDevKey} variant={"ghost"}>
-                <KeyRound color="dodgerblue" width={"1.25rem"} />
-                Developer Key
-              </Button> */}
+              
               <p style={{ opacity: 0.5, fontSize: "0.65rem", border: "" }}>
                 If you do not have an account you can request for one. You will
                 be granted access to create an account once your request is
@@ -280,7 +276,7 @@ export default function Login() {
               >
                 Request Access
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

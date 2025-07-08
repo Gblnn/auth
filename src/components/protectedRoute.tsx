@@ -20,7 +20,7 @@ export default function ProtectedRoutes() {
           justifyContent: "center",
           alignItems: "center",
           height: "100vh",
-          background: "linear-gradient(darkslateblue, midnightblue)",
+          background: "",
         }}
       >
         <LoadingOutlined style={{ fontSize: 24, color: "white" }} />
